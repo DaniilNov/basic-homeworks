@@ -59,6 +59,7 @@ public class HomeWorkTwoMain {
             System.out.println("Суммы элементов обеих половин массива равны.");
         }
     }
+
 }
 
 
