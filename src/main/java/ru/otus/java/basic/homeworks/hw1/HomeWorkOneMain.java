@@ -14,7 +14,7 @@ public class HomeWorkOneMain {
     }
 
     public static String greetings() {
-        return "Hello\n" + "World\n" + "from\n" + "Java";
+        return "Hello\nWorld\nfrom\nJava";
     }
 
     public static String checkSign(int a, int b, int c) {
