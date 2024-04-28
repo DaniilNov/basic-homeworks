@@ -6,11 +6,13 @@ public class HomeWorkThreeMain {
         int[][] array = {
                 {1, 2, 3},
                 {4, 5, 6},
-                {7, 8, 9}
+                {7, 8, -9}
         };
+
         int[][] arrayWithOneRow = {
                 {1, 2, 3}
         };
+
         System.out.println(sumOfPositiveElements(array));
         printSquare(array.length);
         zeroDiagonalsAndPrintArray(array);
@@ -27,7 +29,9 @@ public class HomeWorkThreeMain {
         for (int[] ints : arrayInt) {
             int rowSum = 0;
             for (int anInt : ints) {
-                rowSum += anInt;
+                if (anInt > 0) {
+                    rowSum += anInt;
+                }
             }
             sumInt += rowSum;
         }
@@ -65,7 +69,7 @@ public class HomeWorkThreeMain {
     //Реализовать метод findMax(int[][] array)
     // который должен найти и вернуть максимальный элемент массива;
     public static int findMax(int[][] array) {
-        int maxValue = 0;
+        int maxValue = array[0][0];
         for (int[] row : array) {
             for (int element : row) {
                 if (element > maxValue) {
