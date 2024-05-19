@@ -1,4 +1,4 @@
-package ru.otus.java.basic.homeworks.hw5;
+package ru.otus.java.basic.homeworks.hw5.animals;
 
 public abstract class Animal {
     protected String name;
@@ -13,7 +13,16 @@ public abstract class Animal {
         this.stamina = stamina;
     }
 
-    public abstract double run(int distance);
+    public double run(int distance) {
+        if (distance <= stamina) {
+            stamina -= distance;
+            System.out.println(name + " пробежал " + distance + " м. за " + (distance / runningSpeed) + " сек. Осталось выносливости: " + stamina);
+            return distance / runningSpeed;
+        } else {
+            System.out.println(name + " устал и не может пробежать " + distance + " м");
+            return -1;
+        }
+    }
 
     public abstract double swim(int distance);
 

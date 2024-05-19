@@ -1,5 +1,9 @@
 package ru.otus.java.basic.homeworks.hw5;
 
+import ru.otus.java.basic.homeworks.hw5.animals.Cat;
+import ru.otus.java.basic.homeworks.hw5.animals.Dog;
+import ru.otus.java.basic.homeworks.hw5.animals.Horse;
+
 // Создайте классы Cat, Dog и Horse с наследованием от класса Animal
 // У каждого животного есть имя, скорость бега и плавания (м/с), и выносливость (измеряется в условных единицах)
 // Затраты выносливости:
