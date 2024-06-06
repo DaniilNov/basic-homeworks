@@ -5,7 +5,7 @@ import ru.otus.java.basic.homeworks.hw7.terrain.TerrainType;
 public abstract class Transport {
     public String name;
 
-    public Transport(String name) {
+    protected Transport(String name) {
         this.name = name;
     }
 
