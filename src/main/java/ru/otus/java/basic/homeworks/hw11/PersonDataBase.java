@@ -1,10 +1,18 @@
 package ru.otus.java.basic.homeworks.hw11;
 
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class PersonDataBase {
     private final Map<Long, Person> personMap;
+    private static final Set<Position> MANAGER_POSITIONS = EnumSet.of(
+            Position.MANAGER,
+            Position.DIRECTOR,
+            Position.BRANCH_DIRECTOR,
+            Position.SENIOR_MANAGER
+    );
 
     public PersonDataBase() {
         this.personMap = new HashMap<>();
@@ -28,9 +36,10 @@ public class PersonDataBase {
      * Метод для проверки, является ли Person менеджером - O(1)
      */
     public boolean isManager(Person person) {
-        Position position = person.getPosition();
-        return position == Position.MANAGER || position == Position.DIRECTOR ||
-                position == Position.BRANCH_DIRECTOR || position == Position.SENIOR_MANAGER;
+        if (person == null || person.getPosition() == null) {
+            return false;
+        }
+        return MANAGER_POSITIONS.contains(person.getPosition());
     }
 
     /**
@@ -42,7 +51,6 @@ public class PersonDataBase {
             return false;
         }
         Position position = person.getPosition();
-        return position != Position.MANAGER && position != Position.DIRECTOR &&
-                position != Position.BRANCH_DIRECTOR && position != Position.SENIOR_MANAGER;
+        return !MANAGER_POSITIONS.contains(position);
     }
 }
