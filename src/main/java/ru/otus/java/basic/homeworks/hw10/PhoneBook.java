@@ -15,31 +15,31 @@ import java.util.Map;
  * Метод containsPhoneNumber должен проверять наличие телефона в справочнике.
  */
 public class PhoneBook {
-    private final Map<String, List<String>> phoneBook;
+    private final Map<String, List<String>> contacts;
 
     public PhoneBook() {
-        this.phoneBook = new HashMap<>();
+        this.contacts = new HashMap<>();
     }
 
     /**
      * Метод для добавления записи имя-телефон
      */
     public void add(String name, String phoneNumber) {
-        phoneBook.computeIfAbsent(name, k -> new ArrayList<>()).add(phoneNumber);
+        contacts.computeIfAbsent(name, k -> new ArrayList<>()).add(phoneNumber);
     }
 
     /**
      * Метод для поиска номеров телефонов по имени
      */
     public List<String> find(String name) {
-        return phoneBook.getOrDefault(name, new ArrayList<>());
+        return contacts.getOrDefault(name, new ArrayList<>());
     }
 
     /**
      * Метод для проверки наличия телефона в справочнике
      */
     public boolean containsPhoneNumber(String phoneNumber) {
-        return phoneBook.values().stream()
+        return contacts.values().stream()
                 .flatMap(List::stream)
                 .anyMatch(phone -> phone.equals(phoneNumber));
     }
