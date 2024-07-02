@@ -37,9 +37,6 @@ public class Main {
             final int end = (t == numThreads - 1) ? array.length : start + chunkSize;
             threads[t] = new Thread(() -> {
                 for (int i = start; i < end; i++) {
-                    array[i] = i;
-                }
-                for (int i = start; i < end; i++) {
                     array[i] = 1.14 * Math.cos(i) * Math.sin(i * 0.2) * Math.cos(i / 1.2);
                 }
             });
