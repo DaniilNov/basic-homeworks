@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 public class PingServer {
 
     private static final Pattern MATH_EXPRESSION_PATTERN = Pattern.compile("^\\d+(\\.\\d+)?([+\\-*/]\\d+(\\.\\d+)?)*$");
+    private static final String AVAILABLE_OPERATIONS = "Доступные мат. операции: +-/*";
 
     public static void main(String[] args) {
         try (ServerSocket serverSocket = new ServerSocket(8888)) {
@@ -30,6 +31,9 @@ public class PingServer {
                 BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
                 DataOutputStream out = new DataOutputStream(new BufferedOutputStream(client.getOutputStream()))
         ) {
+            out.writeUTF(AVAILABLE_OPERATIONS);
+            out.flush();
+
             String userInput = in.readLine();
             System.out.println("Original: " + userInput);
             String result;

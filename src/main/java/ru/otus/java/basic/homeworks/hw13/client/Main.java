@@ -14,11 +14,16 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Доступные мат. операции: +-/*");
-        Scanner scanner = new Scanner(System.in);
-        String userInput = scanner.nextLine();
+
         try (Socket socket = new Socket("localhost", 8888)) {
             PingClient pingClient = new PingClient(socket);
+
+            String availableOperations = pingClient.read();
+            System.out.println(availableOperations);
+
+            Scanner scanner = new Scanner(System.in);
+            String userInput = scanner.nextLine();
+
             System.out.println();
             pingClient.send(userInput + "\n");
             String result = pingClient.read();
