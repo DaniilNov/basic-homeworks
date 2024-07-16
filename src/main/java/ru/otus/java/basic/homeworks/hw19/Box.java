@@ -27,6 +27,9 @@ public class Box<T extends Fruit> {
     }
 
     public void transferFruitsTo(Box<? super T> otherBox) {
+        if (otherBox == null) {
+            throw new IllegalArgumentException("Target box cannot be null");
+        }
         if (this == otherBox) {
             return;
         }
