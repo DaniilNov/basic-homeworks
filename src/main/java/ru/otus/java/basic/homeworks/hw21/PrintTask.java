@@ -2,7 +2,7 @@ package ru.otus.java.basic.homeworks.hw21;
 
 class PrintTask implements Runnable {
     private static final int TOTAL_PRINTS = 5;
-    private static String currentTurn = "A";
+    private static volatile String currentTurn = "A";
 
     private final char character;
     private final Object monitor;
